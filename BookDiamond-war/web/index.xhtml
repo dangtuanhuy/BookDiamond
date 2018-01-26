@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        Hello from Facelets
+        <h:form>
+            <h:dataTable var="p" value="#{catagoryController.findAll()}" border="1" cellpadding="2" cellspacing="2">
+                <h:column>
+                    <f:facet name="header">Mã danh mục:</f:facet>
+                    <h:outputText value="#{p.categoryId}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Loại sách:</f:facet>
+                    <h:outputText value="#{p.categoryName}"></h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Mô tả chi tiết:</f:facet>
+                    <h:outputText value="#{p.categoryDescription}"></h:outputText>
+                </h:column>
+                                <h:column>
+                    <f:facet name="header">Phương thức:</f:facet>
+                    <h:commandLink value="Xóa" action="#{catagoryController.delete(cate)}" onclick="return confirm('Bạn có chắn chắn xóa không nè')"></h:commandLink> |
+                    <h:commandLink value="Sửa" action="#{catagoryController.update(cate)}" ></h:commandLink>
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
